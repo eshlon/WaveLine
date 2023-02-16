@@ -12,6 +12,6 @@ COPY requirements.txt requirements.txt
 RUN /venv/bin/pip install -r requirements.txt
 
 COPY . .
-EXPOSE 5000
+EXPOSE 8000
 RUN chmod +x /app/start.sh
 ENTRYPOINT ["./start.sh"]
