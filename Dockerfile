@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get -y install  \
-    python3.11 python3.11-dev python3.11-pip python3.11-venv python-wheel\
+RUN apt-get update && apt-get upgrade -y && apt-get -y install  \
+    python3.11 python-dev python-pip python-venv python-wheel\
     mysql-client libsqlclient-dev libssl-dev default-libmysqlclient-dev
 
 ARG USER=root
