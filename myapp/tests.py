@@ -24,7 +24,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-openai.api_key =  "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"
+openai.api_key =  os.environ("API_KEY")
 # Define a few command handlers. These usually take the two arguments update and
 # context.
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -61,7 +61,7 @@ async def AskGPT(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 def main() -> None:
     """Start the bot."""
     # Create the Application and pass it your bot's token.
-    application = Application.builder().token("6134943420:AAFaicD4JrC0um_EH-biFFt-ewFxSheuiQk").build()
+    application = Application.builder().token(os.environ("TOKEN")).build()
 
     # on different commands - answer in Telegram
     application.add_handler(CommandHandler("start", start))
