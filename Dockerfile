@@ -9,7 +9,7 @@ USER $USER
 RUN python3 -m venv venv
 WORKDIR /app
 COPY requirements.txt requirements.txt
-RUN /venv/bin/pip install -r requirements.txt
+RUN /venv/bin/pip3 install -r requirements.txt
 
 COPY . .
 EXPOSE 8000
