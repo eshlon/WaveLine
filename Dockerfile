@@ -7,9 +7,10 @@ RUN apt-get update && apt-get upgrade -y && apt-get -y install  \
 ARG USER=root
 USER $USER
 RUN python3 -m venv venv
+RUN source venv/bin/activate
 COPY requirements.txt /app/requirements.txt
 WORKDIR /app
-RUN /venv/bin/pip3 install -r requirements.txt
+RUN python -m pip install requirements.txt
 
 COPY . .
 EXPOSE 8000
