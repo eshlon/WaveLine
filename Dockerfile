@@ -7,8 +7,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get -y install  \
 ARG USER=root
 USER $USER
 RUN python3 -m venv venv
+COPY requirements.txt /app/requirements.txt
 WORKDIR /app
-COPY requirements.txt requirements.txt
 RUN /venv/bin/pip3 install -r requirements.txt
 
 COPY . .
