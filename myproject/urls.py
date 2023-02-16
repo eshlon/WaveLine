@@ -19,6 +19,6 @@ from myapp.views import first_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', first_page, name='index'),
+    path('', include('myapp.urls')),
 
 ]
