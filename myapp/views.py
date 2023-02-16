@@ -9,11 +9,11 @@ def start(update, context):
 @csrf_exempt
 def webhook(request):
     if request.method == 'POST':
-        update = telegram.Update.de_json(request.body, telegram.Bot(token='TOKEN'))
+        update = telegram.Update.de_json(request.body, telegram.Bot(token=os.environ['TOKEN']))
         dispatcher.process_update(update)
     return HttpResponse('ok')
 
-updater = Updater(token='TOKEN', use_context=True)
+updater = Updater(token=os.environ['TOKEN'], use_context=True)
 dispatcher = updater.dispatcher
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
