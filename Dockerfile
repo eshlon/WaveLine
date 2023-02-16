@@ -8,7 +8,7 @@ ARG USER=root
 USER $USER
 RUN python3 -m venv venv
 WORKDIR /app
-COPY requirements.txt requirements.txt
+COPY requirements.txt /app
 RUN /venv/bin/pip3 install -r requirements.txt
 
 COPY . .
