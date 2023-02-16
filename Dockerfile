@@ -6,13 +6,12 @@ RUN apt-get update && apt-get upgrade -y && apt-get -y install  \
 
 ARG USER=root
 USER $USER
-RUN python -m venv venv
-RUN source venv/bin/activate
-COPY requirements.txt /app/requirements.txt
+RUN python3 -m venv venv
 WORKDIR /app
-RUN python -m pip install requirements.txt
+COPY requirements.txt requirements.txt
+RUN /venv/bin/pip3 install -r requirements.txt
 
 COPY . .
-EXPOSE 8000
+EXPOSE 5000
 RUN chmod +x /app/start.sh
 ENTRYPOINT ["./start.sh"]
