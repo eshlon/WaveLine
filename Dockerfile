@@ -1,7 +1,7 @@
-FROM ubuntu:bionic
+FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get -y install \
-    python3 python3-dev python3-dev python3-pip python3-venv python3-wheel\
+    python3.11 python3.11-dev python3.11-pip python3.11-venv python3.11-wheel\
     mysql-client libsqlclient-dev libssl-dev default-libmysqlclient-dev
 
 ARG USER=root
